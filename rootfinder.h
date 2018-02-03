@@ -3,20 +3,13 @@
 #include <complex.h>
 #include <math.h>
 
-
-
-
-
-
 double max(double a, double b) {
   return ( a-b > 0)? a : b;
 }
 
-
 double min(double a, double b) {
   return ( a-b > 0)? b : a;
 }
-
 
 // returns the root given an inital guess x0.
 // using the newton method.
@@ -36,8 +29,6 @@ double rootfind(double (*f)(double)
 
   return x1;
 }
-
-
 
 // uses the bisection method to find a root
 double rootfindbisection(double (*f)(double)
@@ -87,6 +78,3 @@ double rootfindbisection(double (*f)(double)
   //printf("%d \n",n);
   return x1;
 }
-
-
-

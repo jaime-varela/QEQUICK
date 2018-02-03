@@ -113,6 +113,20 @@ double Gauss_Hermite_Integration_100pts(int i, int j, double (*f)(double,int, in
    return integral;
 };
 
+double Gauss_Hermite_Integration_100pts_mod(int i, int j, double (*f)(int,int, int,int) ) {
+
+   double integral = 0.0;
+   const double *pA = &A[NUM_OF_POSITIVE_ZEROS];
+   const double *px;
+   int xk = NUM_OF_POSITIVE_ZEROS -1;
+
+   for (px = &x[NUM_OF_POSITIVE_ZEROS - 1]; px >= x; px--,xk--) 
+     integral += *(--pA) * ( (*f)(xk,i,j,1) + (*f)(xk,i,j,-1) );
+
+   return integral;
+};
+
+
 double Gauss_Hermite_Integration_100ptsW(double w, double (*f)(double,double) ) {
 
    double integral = 0.0;
